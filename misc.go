@@ -24,6 +24,14 @@ func (c *Client) Version() (*Env, error) {
 	return &env, nil
 }
 
+// Make
+//
+// See http://goo.gl/wmqZsW for more details.
+func (c *Client) Login(auth_info *AuthConfiguration) (err error) {
+	_, _, err = c.do("POST", "/auth", auth_info)
+	return
+}
+
 // Info returns system-wide information about the Docker server.
 //
 // See http://goo.gl/wmqZsW for more details.
